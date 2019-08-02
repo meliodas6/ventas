@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ventas.BL1;
 
 namespace ventas
 {
@@ -15,28 +16,21 @@ namespace ventas
         public Form1()
         {
             InitializeComponent();
+            var productosBL = new ProductosBL();
+            listadeProductosBindingSource.DataSource = productosBL.ListadeProductos;
+
+            var categoriasBL = new CategoriasBL();
+            listadeCategoriasBindingSource.DataSource = categoriasBL.ListadeCategorias;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-            var producto1 = new Producto();
-            producto1.Id = 1;
-            producto1.Descripcion = "Celular Iphone";
-            producto1.Precio = 10000;
 
-            Producto producto2 = new Producto();
-            producto2.Id = 2;
-            producto2.Descripcion = "SAMSUNG";
-            producto2.Precio = 8000;
+        }
 
-            var listadeProductos = new List<Producto>();
-            listadeProductos.Add(producto1);
-            listadeProductos.Add(producto2);
+        private void idLabel_Click(object sender, EventArgs e)
+        {
 
-            foreach (var producto in listadeProductos)
-            {
-                MessageBox.Show(producto.Descripcion);
-            }
         }
     }
 }
