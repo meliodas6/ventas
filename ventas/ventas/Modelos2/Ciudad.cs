@@ -4,13 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ventas
+namespace ventas.Modelos2
 {
-   public class Cliente
+    public class Ciudad
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
-        public int Telefono { get; set; }
-        public string ciudad { get; set; }
+
+        public Ciudad(int id, string nombre)
+        {
+            Id = id;
+            Nombre = nombre;
+        }
     }
 }
